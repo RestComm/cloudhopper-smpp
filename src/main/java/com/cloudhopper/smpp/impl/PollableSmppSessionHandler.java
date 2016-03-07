@@ -47,10 +47,10 @@ public class PollableSmppSessionHandler implements SmppSessionHandler {
     private final AtomicInteger closedCount;
 
     public PollableSmppSessionHandler() {
-        this.receivedPduRequests = new LinkedBlockingQueue<PduRequest>();
-        this.receivedExpectedPduResponses = new LinkedBlockingQueue<PduAsyncResponse>();
-        this.receivedUnexpectedPduResponses = new LinkedBlockingQueue<PduResponse>();
-        this.throwables = new LinkedBlockingQueue<Throwable>();
+        this.receivedPduRequests = new LinkedBlockingQueue<>();
+        this.receivedExpectedPduResponses = new LinkedBlockingQueue<>();
+        this.receivedUnexpectedPduResponses = new LinkedBlockingQueue<>();
+        this.throwables = new LinkedBlockingQueue<>();
         this.closedCount = new AtomicInteger();
     }
 

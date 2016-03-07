@@ -35,7 +35,7 @@ public class ConcurrentCommandStatusCounter {
     private ConcurrentHashMap<Integer,AtomicInteger> map;
     
     public ConcurrentCommandStatusCounter() {
-        this.map = new ConcurrentHashMap<Integer,AtomicInteger>();
+        this.map = new ConcurrentHashMap<>();
     }
     
     public void reset() {
@@ -71,7 +71,7 @@ public class ConcurrentCommandStatusCounter {
     }
     
     public SortedMap<Integer,Integer> createSortedMapSnapshot() {
-        SortedMap<Integer,Integer> sortedMap = new TreeMap<Integer,Integer>();
+        SortedMap<Integer,Integer> sortedMap = new TreeMap<>();
         for (Map.Entry<Integer,AtomicInteger> entry : this.map.entrySet()) {
             sortedMap.put(entry.getKey(), new Integer(entry.getValue().get()));
         }

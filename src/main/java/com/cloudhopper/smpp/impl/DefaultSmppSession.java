@@ -159,9 +159,9 @@ public class DefaultSmppSession implements SmppServerSession, SmppSessionChannel
         // different ways to construct the window if monitoring is enabled
         if (monitorExecutor != null && configuration.getWindowMonitorInterval() > 0) {
             // enable send window monitoring, verify if the monitoringInterval has been set
-            this.sendWindow = new Window<Integer,PduRequest,PduResponse>(configuration.getWindowSize(), monitorExecutor, configuration.getWindowMonitorInterval(), this, configuration.getName() + ".Monitor");
+            this.sendWindow = new Window<>(configuration.getWindowSize(), monitorExecutor, configuration.getWindowMonitorInterval(), this, configuration.getName() + ".Monitor");
         } else {
-            this.sendWindow = new Window<Integer,PduRequest,PduResponse>(configuration.getWindowSize());
+            this.sendWindow = new Window<>(configuration.getWindowSize());
         }
         
         // these server-only items are null

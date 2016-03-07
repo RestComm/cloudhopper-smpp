@@ -159,7 +159,7 @@ public abstract class Pdu {
      */
     public void addOptionalParameter(Tlv tlv) {
         if (this.optionalParameters == null) {
-            this.optionalParameters = new ArrayList<Tlv>();
+            this.optionalParameters = new ArrayList<>();
         }
         this.optionalParameters.add(tlv);
     }

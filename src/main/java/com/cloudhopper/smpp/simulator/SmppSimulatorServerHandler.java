@@ -53,7 +53,7 @@ public class SmppSimulatorServerHandler extends SimpleChannelHandler {
 
     public SmppSimulatorServerHandler(ChannelGroup sessionChannels) {
         this.sessionChannels = sessionChannels;
-        this.sessionQueue = new LinkedBlockingQueue<SmppSimulatorSessionHandler>();
+        this.sessionQueue = new LinkedBlockingQueue<>();
     }
 
     public SmppSimulatorPduProcessor getDefaultPduProcessor() {
