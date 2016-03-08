@@ -81,7 +81,7 @@ public abstract class Pdu {
     }
 
     public void setCommandLength(int value) {
-        this.commandLength = new Integer(value);
+        this.commandLength = Integer.valueOf(value);
     }
 
     public int getCommandLength() {
@@ -124,7 +124,7 @@ public abstract class Pdu {
     }
 
     public void setSequenceNumber(int value) {
-        this.sequenceNumber = new Integer(value);
+        this.sequenceNumber = Integer.valueOf(value);
     }
 
     public int getSequenceNumber() {

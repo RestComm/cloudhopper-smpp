@@ -50,7 +50,7 @@ public class DefaultPduTranscoderContext implements PduTranscoderContext {
             resultMessage = overrideContext.lookupResultMessage(commandStatus);
         }
         if (resultMessage == null) {
-            resultMessage = SmppConstants.STATUS_MESSAGE_MAP.get(new Integer(commandStatus));
+            resultMessage = SmppConstants.STATUS_MESSAGE_MAP.get(Integer.valueOf(commandStatus));
         }
         return resultMessage;
     }
@@ -62,7 +62,7 @@ public class DefaultPduTranscoderContext implements PduTranscoderContext {
             tagName = overrideContext.lookupTlvTagName(tag);
         }
         if (tagName == null) {
-            tagName = SmppConstants.TAG_NAME_MAP.get(new Short(tag));
+            tagName = SmppConstants.TAG_NAME_MAP.get(Short.valueOf(tag));
         }
         return tagName;
     }
