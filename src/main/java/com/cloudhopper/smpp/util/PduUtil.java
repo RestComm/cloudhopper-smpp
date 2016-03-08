@@ -58,11 +58,11 @@ public class PduUtil {
 
     static public boolean isRequestCommandId(int commandId) {
         // if the 31st bit is not set, this is a request
-        return ((commandId & SmppConstants.PDU_CMD_ID_RESP_MASK) == 0);
+        return (commandId & SmppConstants.PDU_CMD_ID_RESP_MASK) == 0;
     }
 
     static public boolean isResponseCommandId(int commandId) {
         // if the 31st bit is not set, this is a request
-        return ((commandId & SmppConstants.PDU_CMD_ID_RESP_MASK) == SmppConstants.PDU_CMD_ID_RESP_MASK);
+        return (commandId & SmppConstants.PDU_CMD_ID_RESP_MASK) == SmppConstants.PDU_CMD_ID_RESP_MASK;
     }
 }

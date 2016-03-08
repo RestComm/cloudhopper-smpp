@@ -39,7 +39,7 @@ public class SmppUtil {
      * @return True if the option is set, otherwise false.
      */
     static public boolean isMessageTypeAnyDeliveryReceipt(byte esmClass) {
-        return ((esmClass & SmppConstants.ESM_CLASS_MT_MASK) > 0);
+        return (esmClass & SmppConstants.ESM_CLASS_MT_MASK) > 0;
     }
 
     /**
@@ -48,7 +48,7 @@ public class SmppUtil {
      * @return True if the option is set, otherwise false.
      */
     static public boolean isMessageTypeManualUserAcknowledgement(byte esmClass) {
-        return ((esmClass & SmppConstants.ESM_CLASS_MT_MASK) == SmppConstants.ESM_CLASS_MT_MANUAL_USER_ACK);
+        return (esmClass & SmppConstants.ESM_CLASS_MT_MASK) == SmppConstants.ESM_CLASS_MT_MANUAL_USER_ACK;
     }
 
     /**
@@ -57,7 +57,7 @@ public class SmppUtil {
      * @return True if the option is set, otherwise false.
      */
     static public boolean isMessageTypeEsmeDeliveryReceipt(byte esmClass) {
-        return ((esmClass & SmppConstants.ESM_CLASS_MT_MASK) == SmppConstants.ESM_CLASS_MT_ESME_DELIVERY_RECEIPT);
+        return (esmClass & SmppConstants.ESM_CLASS_MT_MASK) == SmppConstants.ESM_CLASS_MT_ESME_DELIVERY_RECEIPT;
     }
 
     /**
@@ -66,7 +66,7 @@ public class SmppUtil {
      * @return True if the option is set, otherwise false.
      */
     static public boolean isMessageTypeIntermediateDeliveryReceipt(byte esmClass) {
-        return ((esmClass & SmppConstants.ESM_CLASS_INTERMEDIATE_DELIVERY_RECEIPT_FLAG) == SmppConstants.ESM_CLASS_INTERMEDIATE_DELIVERY_RECEIPT_FLAG);
+        return (esmClass & SmppConstants.ESM_CLASS_INTERMEDIATE_DELIVERY_RECEIPT_FLAG) == SmppConstants.ESM_CLASS_INTERMEDIATE_DELIVERY_RECEIPT_FLAG;
     }
 
     /**
@@ -75,7 +75,7 @@ public class SmppUtil {
      * @return True if the option is set, otherwise false.
      */
     static public boolean isMessageTypeSmscDeliveryReceipt(byte esmClass) {
-        return ((esmClass & SmppConstants.ESM_CLASS_MT_MASK) == SmppConstants.ESM_CLASS_MT_SMSC_DELIVERY_RECEIPT);
+        return (esmClass & SmppConstants.ESM_CLASS_MT_MASK) == SmppConstants.ESM_CLASS_MT_SMSC_DELIVERY_RECEIPT;
     }
 
     /**
@@ -84,7 +84,7 @@ public class SmppUtil {
      * @return True if the option is set, otherwise false.
      */
     static public boolean isUserDataHeaderIndicatorEnabled(byte esmClass) {
-        return ((esmClass & SmppConstants.ESM_CLASS_UDHI_MASK) == SmppConstants.ESM_CLASS_UDHI_MASK);
+        return (esmClass & SmppConstants.ESM_CLASS_UDHI_MASK) == SmppConstants.ESM_CLASS_UDHI_MASK;
     }
 
     /**
@@ -93,7 +93,7 @@ public class SmppUtil {
      * @return True if the option is set, otherwise false.
      */
     static public boolean isReplyPathEnabled(byte esmClass) {
-        return ((esmClass & SmppConstants.ESM_CLASS_REPLY_PATH_MASK) == SmppConstants.ESM_CLASS_REPLY_PATH_MASK);
+        return (esmClass & SmppConstants.ESM_CLASS_REPLY_PATH_MASK) == SmppConstants.ESM_CLASS_REPLY_PATH_MASK;
     }
 
     /**
@@ -103,7 +103,7 @@ public class SmppUtil {
      * @return True if the option is set, otherwise false.
      */
     static public boolean isSmscDeliveryReceiptRequested(byte registeredDelivery) {
-        return ((registeredDelivery & SmppConstants.REGISTERED_DELIVERY_SMSC_RECEIPT_MASK) == SmppConstants.REGISTERED_DELIVERY_SMSC_RECEIPT_REQUESTED);
+        return (registeredDelivery & SmppConstants.REGISTERED_DELIVERY_SMSC_RECEIPT_MASK) == SmppConstants.REGISTERED_DELIVERY_SMSC_RECEIPT_REQUESTED;
     }
 
     /**
@@ -113,7 +113,7 @@ public class SmppUtil {
      * @return True if the option is set, otherwise false.
      */
     static public boolean isSmscDeliveryReceiptOnFailureRequested(byte registeredDelivery) {
-        return ((registeredDelivery & SmppConstants.REGISTERED_DELIVERY_SMSC_RECEIPT_MASK) == SmppConstants.REGISTERED_DELIVERY_SMSC_RECEIPT_ON_FAILURE);
+        return (registeredDelivery & SmppConstants.REGISTERED_DELIVERY_SMSC_RECEIPT_MASK) == SmppConstants.REGISTERED_DELIVERY_SMSC_RECEIPT_ON_FAILURE;
     }
 
     /**
@@ -122,7 +122,7 @@ public class SmppUtil {
      * @return True if the option is set, otherwise false.
      */
     static public boolean isIntermediateReceiptRequested(byte registeredDelivery) {
-        return ((registeredDelivery & SmppConstants.REGISTERED_DELIVERY_INTERMEDIATE_NOTIFICATION_MASK) == SmppConstants.REGISTERED_DELIVERY_INTERMEDIATE_NOTIFICATION_REQUESTED);
+        return (registeredDelivery & SmppConstants.REGISTERED_DELIVERY_INTERMEDIATE_NOTIFICATION_MASK) == SmppConstants.REGISTERED_DELIVERY_INTERMEDIATE_NOTIFICATION_REQUESTED;
     }
 
     /**
