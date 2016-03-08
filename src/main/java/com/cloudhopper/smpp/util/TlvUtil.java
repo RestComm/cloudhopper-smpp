@@ -30,6 +30,8 @@ import java.io.UnsupportedEncodingException;
  * @author joelauer (twitter: @jjlauer or <a href="http://twitter.com/jjlauer" target=window>http://twitter.com/jjlauer</a>)
  */
 public class TlvUtil {
+    
+    private TlvUtil() {}
 
     /**
      * Writes a variable length C-String (null terminated) TLV.  If the String

@@ -31,6 +31,8 @@ import com.cloudhopper.smpp.SmppConstants;
  */
 public class SmppUtil {
 
+    private SmppUtil() {}
+    
     /**
      * Does the "esm_class" value have a message type set at all?  This basically
      * checks if the "esm_class" could either be SMSC delivery receipt, ESME delivery receipt,

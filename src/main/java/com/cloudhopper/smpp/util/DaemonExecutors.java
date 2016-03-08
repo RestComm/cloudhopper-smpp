@@ -30,6 +30,8 @@ import java.util.concurrent.ThreadFactory;
  */
 public class DaemonExecutors {
 
+    private DaemonExecutors() {}
+    
     /**
      * Utility method for creating a cached pool of "daemon" threads.  A daemon
      * thread does not limit the JVM from exiting if they aren't shutdown.

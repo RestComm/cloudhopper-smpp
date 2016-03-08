@@ -27,6 +27,8 @@ package com.cloudhopper.smpp.channel;
  */
 public class SmppChannelConstants {
 
+    private SmppChannelConstants() {}
+    
     public static final String PIPELINE_SERVER_CONNECTOR_NAME = "smppServerConnector";
 
     // default channel handler used only during connects
