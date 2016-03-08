@@ -251,7 +251,7 @@ public class DefaultSmppServer implements SmppServer, DefaultSmppServerMXBean {
 
     @Override
     public void stop() {
-        if (this.channels.size() > 0) {
+        if (!this.channels.isEmpty()) {
             logger.info("{} currently has [{}] open child channel(s) that will be closed as part of stop()", configuration.getName(), this.channels.size());
         }
         // close all channels still open within this session "bootstrap"

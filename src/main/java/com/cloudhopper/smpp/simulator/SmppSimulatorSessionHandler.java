@@ -144,7 +144,7 @@ public class SmppSimulatorSessionHandler extends FrameDecoder {
         }
 
         // is there a PDU someone wants us to write in response?
-        if (this.writePduQueue.size() > 0) {
+        if (!this.writePduQueue.isEmpty()) {
             Pdu pduToWrite = this.writePduQueue.remove();
             logger.info("Automatically writing back on channel 0x" + HexUtil.toHexString(channel.getId()) + " the PDU: {}", pduToWrite);
             ChannelBuffer writeBuffer = this.transcoder.encode(pduToWrite);

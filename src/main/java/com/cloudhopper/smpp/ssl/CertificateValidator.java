@@ -136,7 +136,7 @@ public class CertificateValidator
      * @throws CertificateException
      */
     public void validate(KeyStore keyStore, Certificate cert) throws CertificateException {
-        Certificate[] certChain = null;
+        Certificate[] certChain;
 	if (cert != null && cert instanceof X509Certificate) {
             ((X509Certificate)cert).checkValidity();
             
