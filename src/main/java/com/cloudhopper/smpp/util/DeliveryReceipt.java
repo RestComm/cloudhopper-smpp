@@ -336,7 +336,7 @@ public class DeliveryReceipt {
 	}
 
 	static public void findFieldAndAddToTreeMap(String normalizedText,
-			String field, TreeMap<Integer, String> fieldsByStartPos) {
+			String field, Map<Integer, String> fieldsByStartPos) {
 		int startPos = normalizedText.indexOf(field);
 		// logger.debug("Found field " + field + " at startPos " + startPos);
 		if (startPos >= 0) {

@@ -31,8 +31,8 @@ package com.cloudhopper.smpp.type;
 public class NotEnoughDataInBufferException extends RecoverablePduException {
     static final long serialVersionUID = 1L;
     
-    private int available;
-    private int expected;
+    private final int available;
+    private final int expected;
 
     /**
      * Constructs an instance of <code>AtNotEnoughDataInBufferException</code>
