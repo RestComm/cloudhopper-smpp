@@ -76,12 +76,12 @@ public final class StatisticsSample {
      */
     public String getAndReset() {
         synchronized (this) {
-            final String r = (new StringBuilder(BUFF_LENGTH)).append(itsMinimum).append(SEPARATOR).append(itsMaximum)
-                    .append(SEPARATOR).append(getAverage()).toString();
+            final String r = (new StringBuilder(BUFF_LENGTH)).append(getMinimum()).append(SEPARATOR)
+                    .append(getMaximum()).append(SEPARATOR).append(getAverage()).toString();
             itsSum = 0L;
             itsCount = 0L;
-            itsMinimum = Long.MIN_VALUE;
-            itsMaximum = Long.MAX_VALUE;
+            itsMinimum = Long.MAX_VALUE;
+            itsMaximum = Long.MIN_VALUE;
             return r;
         }
     }
@@ -93,9 +93,23 @@ public final class StatisticsSample {
         synchronized (this) {
             itsSum = 0L;
             itsCount = 0L;
-            itsMinimum = Long.MIN_VALUE;
-            itsMaximum = Long.MAX_VALUE;
+            itsMinimum = Long.MAX_VALUE;
+            itsMaximum = Long.MIN_VALUE;
         }
+    }
+
+    private String getMinimum() {
+        if (itsMinimum == Long.MAX_VALUE) {
+            return EMPTY_VALUE;
+        }
+        return String.valueOf(itsMinimum);
+    }
+
+    private String getMaximum() {
+        if (itsMaximum == Long.MIN_VALUE) {
+            return EMPTY_VALUE;
+        }
+        return String.valueOf(itsMaximum);
     }
 
     private String getAverage() {
