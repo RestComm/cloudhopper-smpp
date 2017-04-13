@@ -76,8 +76,8 @@ public final class StatisticsSample {
      */
     public String getAndReset() {
         synchronized (this) {
-            final String r = (new StringBuilder(BUFF_LENGTH)).append(getMinimum()).append(SEPARATOR)
-                    .append(getMaximum()).append(SEPARATOR).append(getAverage()).toString();
+            final String r = (new StringBuilder(BUFF_LENGTH)).append(itsCount).append(SEPARATOR).append(getMinimum())
+                    .append(SEPARATOR).append(getMaximum()).append(SEPARATOR).append(getAverage()).toString();
             itsSum = 0L;
             itsCount = 0L;
             itsMinimum = Long.MAX_VALUE;
@@ -117,6 +117,10 @@ public final class StatisticsSample {
             return EMPTY_VALUE;
         }
         return itsNumberFormat.format(itsSum / itsCount);
+    }
+
+    public static void main(String[] args) {
+        System.out.println("");
     }
 
 }
