@@ -4,12 +4,23 @@
     <groupId>org.restcomm.smpp</groupId>
     <artifactId>ch-smpp</artifactId>
     <packaging>jar</packaging>
-    <version>5.0.10-SNAPSHOT</version>
+    <version>5.0.8-SNAPSHOT</version>
     <name>ch-smpp</name>
     <description>Efficient, scalable, and flexible Java implementation of the Short Messaging Peer to Peer Protocol (SMPP)</description>
     <url>https://github.com/Restcomm/cloudhopper-smpp</url>
     <inceptionYear>2009</inceptionYear>
-    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
     <scm>
         <url>https://github.com/Restcomm/cloudhopper-smpp</url>
         <connection>scm:git:https://github.com/Restcomm/cloudhopper-smpp.git</connection>
@@ -32,6 +43,7 @@
         <slf4j.version>1.7.13</slf4j.version>
         <!-- workaround travis ci maven version requirement -->
         <maven.enforce.version>3.2.5</maven.enforce.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
