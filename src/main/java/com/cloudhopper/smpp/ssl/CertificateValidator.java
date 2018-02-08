@@ -168,7 +168,7 @@ public class CertificateValidator
     
     public void validate(Certificate[] certChain) throws CertificateException {
         try {
-            ArrayList<X509Certificate> certList = new ArrayList<X509Certificate>();
+            ArrayList<X509Certificate> certList = new ArrayList<>();
             for (Certificate item : certChain) {
                 if (item == null) continue;
                 if (!(item instanceof X509Certificate)) {

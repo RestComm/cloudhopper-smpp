@@ -521,7 +521,7 @@ public class SmppConstants {
     public static final Map<Short,String> TAG_NAME_MAP;
 
     static {
-        STATUS_MESSAGE_MAP = new HashMap<Integer,String>();
+        STATUS_MESSAGE_MAP = new HashMap<>();
         STATUS_MESSAGE_MAP.put(STATUS_OK, "OK");
         STATUS_MESSAGE_MAP.put(STATUS_INVMSGLEN, "Message length invalid");
         STATUS_MESSAGE_MAP.put(STATUS_INVCMDLEN, "Command length invalid");
@@ -584,7 +584,7 @@ public class SmppConstants {
         STATUS_MESSAGE_MAP.put(STATUS_INVBCASTCNTTYPE, "Broadcast Content Type is invalid");
         STATUS_MESSAGE_MAP.put(STATUS_INVBCASTMSGCLASS, "Broadcast Message Class is invalid");
 
-        TAG_NAME_MAP = new HashMap<Short,String>();
+        TAG_NAME_MAP = new HashMap<>();
         TAG_NAME_MAP.put(TAG_SOURCE_TELEMATICS_ID, "source_telematics_id");
         TAG_NAME_MAP.put(TAG_PAYLOAD_TYPE, "payload_type");
         TAG_NAME_MAP.put(TAG_PRIVACY_INDICATOR, "privacy_indicator");

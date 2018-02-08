@@ -59,9 +59,9 @@ public class SmppSimulatorSessionHandler extends FrameDecoder {
     public SmppSimulatorSessionHandler(Channel channel, PduTranscoder transcoder) {
         this.channel = channel;
         this.transcoder = transcoder;
-        this.pduQueue = new LinkedBlockingQueue<Pdu>();
-        this.exceptionQueue = new LinkedBlockingQueue<Throwable>();
-        this.writePduQueue = new LinkedBlockingDeque<Pdu>();
+        this.pduQueue = new LinkedBlockingQueue<>();
+        this.exceptionQueue = new LinkedBlockingQueue<>();
+        this.writePduQueue = new LinkedBlockingDeque<>();
     }
 
     public SmppSimulatorPduProcessor getPduProcessor() {

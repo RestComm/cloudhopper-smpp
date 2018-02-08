@@ -391,7 +391,7 @@ public class DeliveryReceipt {
 		// create a new DLR with fields set to "uninitialized" values
 		DeliveryReceipt dlr = new DeliveryReceipt(null, -1, -1, null, null,
 				(byte) -1, -1, null);
-		TreeMap<Integer, String> fieldsByStartPos = new TreeMap<Integer, String>();
+		TreeMap<Integer, String> fieldsByStartPos = new TreeMap<>();
 
 		// find location of all possible fields in text of message and add to
 		// treemap by their startPos so that we'll end up with an ordered list

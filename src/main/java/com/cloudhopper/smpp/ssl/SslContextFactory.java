@@ -414,7 +414,7 @@ public class SslContextFactory {
      * @return Array of cipher suites to enable
      */
     public String[] selectProtocols(String[] enabledProtocols, String[] supportedProtocols) {
-        Set<String> selected_protocols = new HashSet<String>();
+        Set<String> selected_protocols = new HashSet<>();
         
         // Set the starting protocols - either from the included or enabled list
         if (sslConfig.getIncludeProtocols() != null) {
@@ -443,7 +443,7 @@ public class SslContextFactory {
      * @return Array of cipher suites to enable
      */
     public String[] selectCipherSuites(String[] enabledCipherSuites, String[] supportedCipherSuites) {
-        Set<String> selected_ciphers = new HashSet<String>();
+        Set<String> selected_ciphers = new HashSet<>();
         
         // Set the starting ciphers - either from the included or enabled list
         if (sslConfig.getIncludeCipherSuites() != null) {

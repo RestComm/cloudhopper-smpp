@@ -45,10 +45,10 @@ public class SslConfiguration
         (Security.getProperty("ssl.TrustManagerFactory.algorithm") == null ?
 	 "SunX509" : Security.getProperty("ssl.TrustManagerFactory.algorithm"));
     
-    private final Set<String> excludeProtocols = new HashSet<String>();
+    private final Set<String> excludeProtocols = new HashSet<>();
     private Set<String> includeProtocols = null;
     
-    private final Set<String> excludeCipherSuites = new HashSet<String>();
+    private final Set<String> excludeCipherSuites = new HashSet<>();
     private Set<String> includeCipherSuites = null;
 
     private String keyStorePath;
@@ -127,7 +127,7 @@ public class SslConfiguration
      * {@link SSLEngine#setEnabledProtocols(String[])}
      */
     public void setIncludeProtocols(String... protocols) {
-        this.includeProtocols = new HashSet<String>(Arrays.asList(protocols));
+        this.includeProtocols = new HashSet<>(Arrays.asList(protocols));
     }
 
     /**
@@ -169,7 +169,7 @@ public class SslConfiguration
      * {@link SSLEngine#setEnabledCipherSuites(String[])}
      */
     public void setIncludeCipherSuites(String... cipherSuites) {
-        this.includeCipherSuites = new HashSet<String>(Arrays.asList(cipherSuites));
+        this.includeCipherSuites = new HashSet<>(Arrays.asList(cipherSuites));
     }
 
     /**
