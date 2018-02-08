@@ -150,7 +150,7 @@ public class DefaultSmppSession implements SmppServerSession, SmppSessionChannel
         this.configuration = configuration;
         this.channel = channel;
         this.boundTime = new AtomicLong(0);
-        this.sessionHandler = (sessionHandler == null ? new DefaultSmppSessionHandler(logger) : sessionHandler);
+        this.sessionHandler = sessionHandler == null ? new DefaultSmppSessionHandler(logger) : sessionHandler;
         this.sequenceNumber = new SequenceNumber();
         // always "wrap" the custom pdu transcoder context with a default one
         this.transcoder = new DefaultPduTranscoder(new DefaultPduTranscoderContext(this.sessionHandler));
@@ -245,32 +245,32 @@ public class DefaultSmppSession implements SmppServerSession, SmppSessionChannel
 
     @Override
     public boolean areOptionalParametersSupported() {
-        return (this.interfaceVersion >= SmppConstants.VERSION_3_4);
+        return this.interfaceVersion >= SmppConstants.VERSION_3_4;
     }
 
     @Override
     public boolean isOpen() {
-        return (this.state.get() == STATE_OPEN);
+        return this.state.get() == STATE_OPEN;
     }
 
     @Override
     public boolean isBinding() {
-        return (this.state.get() == STATE_BINDING);
+        return this.state.get() == STATE_BINDING;
     }
 
     @Override
     public boolean isBound() {
-        return (this.state.get() == STATE_BOUND);
+        return this.state.get() == STATE_BOUND;
     }
 
     @Override
     public boolean isUnbinding() {
-        return (this.state.get() == STATE_UNBINDING);
+        return this.state.get() == STATE_UNBINDING;
     }
 
     @Override
     public boolean isClosed() {
-        return (this.state.get() == STATE_CLOSED);
+        return this.state.get() == STATE_CLOSED;
     }
 
     @Override
@@ -302,7 +302,7 @@ public class DefaultSmppSession implements SmppServerSession, SmppSessionChannel
     
     @Override
     public boolean hasCounters() {
-        return (this.counters != null);
+        return this.counters != null;
     }
     
     @Override
@@ -638,7 +638,7 @@ public class DefaultSmppSession implements SmppServerSession, SmppSessionChannel
                 WindowFuture<Integer,PduRequest,PduResponse> future = this.sendWindow.complete(receivedPduSeqNum, responsePdu);
                 if (future != null) {
                     logger.trace("Found a future in the window for seqNum [{}]", receivedPduSeqNum);
-                    this.countReceiveResponsePdu(responsePdu, future.getOfferToAcceptTime(), future.getAcceptToDoneTime(), (future.getAcceptToDoneTime() / future.getWindowSize()));
+                    this.countReceiveResponsePdu(responsePdu, future.getOfferToAcceptTime(), future.getAcceptToDoneTime(), future.getAcceptToDoneTime() / future.getWindowSize());
                     
                     // if this isn't null, we found a match to a request
                     int callerStateHint = future.getCallerStateHint();
@@ -980,7 +980,7 @@ public class DefaultSmppSession implements SmppServerSession, SmppSessionChannel
 
     @Override
     public boolean isWindowMonitorEnabled() {
-        return (this.monitorExecutor != null && this.configuration.getWindowMonitorInterval() > 0);
+        return this.monitorExecutor != null && this.configuration.getWindowMonitorInterval() > 0;
     }
     
     @Override

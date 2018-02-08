@@ -223,17 +223,17 @@ public class DefaultSmppServer implements SmppServer, DefaultSmppServerMXBean {
     
     @Override
     public boolean isStarted() {
-        return (this.serverChannel != null && this.serverChannel.isBound());
+        return this.serverChannel != null && this.serverChannel.isBound();
     }
 
     @Override
     public boolean isStopped() {
-        return (this.serverChannel == null);
+        return this.serverChannel == null;
     }
 
     @Override
     public boolean isDestroyed() {
-        return (this.serverBootstrap == null);
+        return this.serverBootstrap == null;
     }
     
     @Override

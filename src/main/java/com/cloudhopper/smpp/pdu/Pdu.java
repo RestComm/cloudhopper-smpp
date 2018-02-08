@@ -73,7 +73,7 @@ public abstract class Pdu {
     }
 
     public boolean hasCommandLengthCalculated() {
-        return (this.commandLength != null);
+        return this.commandLength != null;
     }
 
     public void removeCommandLength() {
@@ -116,7 +116,7 @@ public abstract class Pdu {
     }
 
     public boolean hasSequenceNumberAssigned() {
-        return (this.sequenceNumber != null);
+        return this.sequenceNumber != null;
     }
 
     public void removeSequenceNumber() {
@@ -206,7 +206,7 @@ public abstract class Pdu {
      * @return True if exists, otherwise false
      */
     public boolean hasOptionalParameter(short tag) {
-        return (this.findOptionalParameter(tag) >= 0);
+        return this.findOptionalParameter(tag) >= 0;
     }
 
     protected int findOptionalParameter(short tag) {

@@ -59,7 +59,7 @@ public abstract class BaseSm<R extends PduResponse> extends PduRequest<R> {
     }
 
     public int getShortMessageLength() {
-        return (this.shortMessage == null ? 0 : this.shortMessage.length);
+        return this.shortMessage == null ? 0 : this.shortMessage.length;
     }
 
     public byte[] getShortMessage() {

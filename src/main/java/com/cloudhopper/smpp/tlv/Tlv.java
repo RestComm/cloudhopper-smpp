@@ -72,7 +72,7 @@ public class Tlv {
      * @return The "unsigned" length of this TLV's value
      */
     public int getUnsignedLength() {
-        return (value == null ? 0 : value.length);
+        return value == null ? 0 : value.length;
     }
 
     public short getLength() {

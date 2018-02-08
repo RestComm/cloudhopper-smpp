@@ -70,7 +70,7 @@ public class DefaultPduAsyncResponse implements PduAsyncResponse {
         if (responseTime == 0 || future.getWindowSize() == 0) {
             return 0;
         }
-        return (responseTime / future.getWindowSize());
+        return responseTime / future.getWindowSize();
     }
 
     @Override

@@ -45,7 +45,7 @@ public class LoggingOptions {
     }
 
     public boolean isLogPduEnabled() {
-        return ((this.option & LOG_PDU) > 0);
+        return (this.option & LOG_PDU) > 0;
     }
 
     public void setLogBytes(boolean value) {
@@ -57,6 +57,6 @@ public class LoggingOptions {
     }
 
     public boolean isLogBytesEnabled() {
-        return ((this.option & LOG_BYTES) > 0);
+        return (this.option & LOG_BYTES) > 0;
     }
 }
