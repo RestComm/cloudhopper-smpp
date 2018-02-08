@@ -30,7 +30,7 @@ import com.cloudhopper.commons.util.HexUtil;
 public class SmppProcessingException extends Exception {
     static final long serialVersionUID = 1L;
 
-    private int errorCode;
+    private final int errorCode;
 
     public SmppProcessingException(int errorCode) {
         this(errorCode, null);

@@ -27,7 +27,10 @@ import com.cloudhopper.smpp.SmppConstants;
 import com.cloudhopper.smpp.tlv.Tlv;
 import com.cloudhopper.smpp.transcoder.PduTranscoderContext;
 import com.cloudhopper.smpp.util.ChannelBufferUtil;
+
 import java.util.ArrayList;
+import java.util.List;
+
 import org.jboss.netty.buffer.ChannelBuffer;
 
 public abstract class Pdu {
@@ -147,7 +150,7 @@ public abstract class Pdu {
      * added, this will return null.
      * @return Null if no parameters added yet, or the list of optional parameters.
      */
-    public ArrayList<Tlv> getOptionalParameters() {
+    public List<Tlv> getOptionalParameters() {
         return this.optionalParameters;
     }
 
