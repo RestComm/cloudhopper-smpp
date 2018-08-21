@@ -31,6 +31,8 @@ import java.util.Map;
  */
 public class SmppConstants {
 
+    private SmppConstants() {}
+    
     //
     // SMPP Data Types
     //

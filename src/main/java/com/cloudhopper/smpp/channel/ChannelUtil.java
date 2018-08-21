@@ -30,6 +30,8 @@ import org.jboss.netty.channel.Channel;
  */
 public class ChannelUtil {
 
+    private ChannelUtil() {}
+    
     /**
      * Create a name for the channel based on the remote host's IP and port.
      */

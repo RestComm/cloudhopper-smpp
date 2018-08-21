@@ -29,6 +29,8 @@ import com.cloudhopper.smpp.type.Address;
  */
 public class PduUtil {
 
+    private PduUtil() {}
+    
     /**
      * Calculates size of a "C-String" by returning the length of the String
      * plus 1 (for the NULL byte).  If the parameter is null, will return 1.
