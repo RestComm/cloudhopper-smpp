@@ -155,7 +155,7 @@ public class DefaultPduTranscoder implements PduTranscoder {
         // this is a major issue if the sequence number is invalid
         SequenceNumber.assertValid(sequenceNumber);
 
-        Pdu pdu = null;
+        Pdu pdu;
 
         // any command id with its 31st bit set to true is a response
         if (PduUtil.isRequestCommandId(commandId)) {

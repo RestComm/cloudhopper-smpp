@@ -162,7 +162,7 @@ public class DefaultSmppClient implements SmppClient {
     }
 
     protected BaseBind createBindRequest(SmppSessionConfiguration config) throws UnrecoverablePduException {
-        BaseBind bind = null;
+        BaseBind bind;
         if (config.getType() == SmppBindType.TRANSCEIVER) {
             bind = new BindTransceiver();
         } else if (config.getType() == SmppBindType.RECEIVER) {
