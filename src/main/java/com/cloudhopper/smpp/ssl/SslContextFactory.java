@@ -94,7 +94,7 @@ public class SslContextFactory {
         if (sslContext == null) {
             if (keyStoreInputStream == null && sslConfig.getKeyStorePath() == null &&
 		trustStoreInputStream == null && sslConfig.getTrustStorePath() == null) {
-                TrustManager[] trust_managers = null;
+                TrustManager[] trustManagers = null;
                 if (sslConfig.isTrustAll()) {
                     logger.debug("No keystore or trust store configured.  ACCEPTING UNTRUSTED CERTIFICATES!!!!!");
                     // Create a trust manager that does not validate certificate chains
@@ -108,13 +108,13 @@ public class SslContextFactory {
 			    public void checkServerTrusted(java.security.cert.X509Certificate[] certs, String authType) {
 			    }
 			};
-                    trust_managers = new TrustManager[] { trustAllCerts };
+                    trustManagers = new TrustManager[] { trustAllCerts };
                 }
                 
                 SecureRandom secureRandom = (sslConfig.getSecureRandomAlgorithm() == null)?null:
 		    SecureRandom.getInstance(sslConfig.getSecureRandomAlgorithm());
                 sslContext = SSLContext.getInstance(sslConfig.getProtocol());
-                sslContext.init(null, trust_managers, secureRandom);
+                sslContext.init(null, trustManagers, secureRandom);
             } else {
                 // verify that keystore and truststore
                 // parameters are set up correctly               
@@ -210,15 +210,10 @@ public class SslContextFactory {
      */
     protected Collection<? extends CRL> loadCRL(String crlPath) throws Exception {
         Collection<? extends CRL> crlList = null;
-        if (crlPath != null) {
-            InputStream in = null;
-            try {
-		in = new FileInputStream(crlPath); //assume it's a file
+        if (crlPath != null) {            
+            // assume it's a file
+            try (InputStream in = new FileInputStream(crlPath)) {                 
                 crlList = CertificateFactory.getInstance("X.509").generateCRLs(in);
-            } finally {
-                if (in != null) {
-                    in.close();
-                }
             }
         }
         return crlList;
@@ -242,22 +237,15 @@ public class SslContextFactory {
      */
     protected KeyStore getKeyStore(InputStream storeStream, String storePath, String storeType, String storeProvider, String storePassword) throws Exception {
         KeyStore keystore = null;
-        if (storeStream != null || storePath != null) {
-            InputStream inStream = storeStream;
-            try {
-                if (inStream == null) {
-                    inStream = new FileInputStream(storePath); //assume it's a file
-                }
+        if (storeStream != null || storePath != null) {            
+            // assume it's a file
+            try (InputStream inStream = (storeStream != null) ? storeStream : new FileInputStream(storePath)) {                
                 if (storeProvider != null) {
                     keystore = KeyStore.getInstance(storeType, storeProvider);
                 } else {
                     keystore = KeyStore.getInstance(storeType);
                 }
                 keystore.load(inStream, storePassword == null ? null : storePassword.toCharArray());
-            } finally {
-                if (inStream != null) {
-                    inStream.close();
-                }
             }
         }
         return keystore;
@@ -414,24 +402,24 @@ public class SslContextFactory {
      * @return Array of cipher suites to enable
      */
     public String[] selectProtocols(String[] enabledProtocols, String[] supportedProtocols) {
-        Set<String> selected_protocols = new HashSet<String>();
+        Set<String> selectedProtocols = new HashSet<String>();
         
         // Set the starting protocols - either from the included or enabled list
         if (sslConfig.getIncludeProtocols() != null) {
             // Use only the supported included protocols
             for (String protocol : supportedProtocols)
                 if (contains(sslConfig.getIncludeProtocols(), protocol))
-                    selected_protocols.add(protocol);
+                    selectedProtocols.add(protocol);
         } else {
-            selected_protocols.addAll(Arrays.asList(enabledProtocols));
+            selectedProtocols.addAll(Arrays.asList(enabledProtocols));
         }
         
         // Remove any excluded protocols
         if (sslConfig.getExcludeProtocols() != null) {
-            selected_protocols.removeAll(Arrays.asList(sslConfig.getExcludeProtocols()));
+            selectedProtocols.removeAll(Arrays.asList(sslConfig.getExcludeProtocols()));
         }
 
-        return selected_protocols.toArray(new String[selected_protocols.size()]);
+        return selectedProtocols.toArray(new String[selectedProtocols.size()]);
     }
     
     /**
@@ -443,24 +431,24 @@ public class SslContextFactory {
      * @return Array of cipher suites to enable
      */
     public String[] selectCipherSuites(String[] enabledCipherSuites, String[] supportedCipherSuites) {
-        Set<String> selected_ciphers = new HashSet<String>();
+        Set<String> selectedCiphers = new HashSet<String>();
         
         // Set the starting ciphers - either from the included or enabled list
         if (sslConfig.getIncludeCipherSuites() != null) {
             // Use only the supported included ciphers
             for (String cipherSuite : supportedCipherSuites)
                 if (contains(sslConfig.getIncludeCipherSuites(), cipherSuite))
-                    selected_ciphers.add(cipherSuite);
+                    selectedCiphers.add(cipherSuite);
         } else {
-            selected_ciphers.addAll(Arrays.asList(enabledCipherSuites));
+            selectedCiphers.addAll(Arrays.asList(enabledCipherSuites));
         }
         
         // Remove any excluded ciphers
         if (sslConfig.getExcludeCipherSuites() != null) {
-            selected_ciphers.removeAll(Arrays.asList(sslConfig.getExcludeCipherSuites()));
+            selectedCiphers.removeAll(Arrays.asList(sslConfig.getExcludeCipherSuites()));
 	}
 
-        return selected_ciphers.toArray(new String[selected_ciphers.size()]);
+        return selectedCiphers.toArray(new String[selectedCiphers.size()]);
     }
 
     public SSLServerSocket newSslServerSocket(String host,int port,int backlog) throws IOException {
