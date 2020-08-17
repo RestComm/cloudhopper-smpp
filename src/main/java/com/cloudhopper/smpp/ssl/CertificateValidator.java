@@ -240,7 +240,7 @@ public class CertificateValidator
      * the certification path (-1 for unlimited)
      */
     public void setMaxCertPathLength(int maxCertPathLength) {
-        maxCertPathLength = maxCertPathLength;
+        this.maxCertPathLength = maxCertPathLength;
     }
     
     /** 
@@ -255,7 +255,7 @@ public class CertificateValidator
      * @param enableCRLDP true - turn on, false - turns off
      */
     public void setEnableCRLDP(boolean enableCRLDP) {
-        enableCRLDP = enableCRLDP;
+        this.enableCRLDP = enableCRLDP;
     }
 
     /** 
@@ -270,7 +270,7 @@ public class CertificateValidator
      * @param enableOCSP true - turn on, false - turn off
      */
     public void setEnableOCSP(boolean enableOCSP) {
-        enableOCSP = enableOCSP;
+        this.enableOCSP = enableOCSP;
     }
 
     /** 
@@ -285,6 +285,6 @@ public class CertificateValidator
      * @param ocspResponderURL location of the OCSP Responder
      */
     public void setOcspResponderURL(String ocspResponderURL) {
-        ocspResponderURL = ocspResponderURL;
+        this.ocspResponderURL = ocspResponderURL;
     }
 }
