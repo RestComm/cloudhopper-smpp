@@ -72,7 +72,7 @@ public class ConcurrentCommandStatusCounter {
     }
 
     public int get(int commandStatus) {
-        Integer key = new Integer(commandStatus);
+        Integer key = Integer.valueOf(commandStatus);
         AtomicInteger val = map.get(key);
         if (val == null) {
             return -1;
@@ -82,7 +82,7 @@ public class ConcurrentCommandStatusCounter {
     }
     
     public int incrementAndGet(int commandStatus) {
-        Integer key = new Integer(commandStatus);
+        Integer key = Integer.valueOf(commandStatus);
         AtomicInteger val = map.get(key);
         if (val == null) {
             val = new AtomicInteger(0);
